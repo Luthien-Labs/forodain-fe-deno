@@ -1,7 +1,15 @@
 import { useState } from 'react';
 import type { Chapter, ChapterSection } from '../../types/story';
 
-const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+const toRoman = (n: number): string => {
+  const vals = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+  const syms = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+  let result = '';
+  for (let i = 0; i < vals.length; i++) {
+    while (n >= vals[i]) { result += syms[i]; n -= vals[i]; }
+  }
+  return result;
+};
 
 const SectionFig = ({ src }: { src: string }) => {
   const [loaded, setLoaded] = useState(false);
@@ -42,7 +50,7 @@ interface ChapterReaderProps {
 }
 
 export const ChapterReader = ({ chapter, chapterIndex, chapterCount, onPrev, onNext }: ChapterReaderProps) => {
-  const romanNum = ROMAN[chapterIndex] ?? String(chapterIndex + 1);
+  const romanNum = toRoman(chapterIndex + 1);
 
   return (
     <article className="jl__chapter">

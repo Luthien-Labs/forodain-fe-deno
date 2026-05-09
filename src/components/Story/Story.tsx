@@ -50,7 +50,6 @@ export const Story = () => {
         <p className="jl__loading">Loading chapters…</p>
       ) : (
         <>
-          <p className="jl__strip-label">Chapters — scroll →</p>
           <ChapterStrip
             chapters={summaries}
             activeIndex={chapterIdx}

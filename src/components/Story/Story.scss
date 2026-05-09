@@ -66,14 +66,79 @@
   margin: 24px 0 12px;
 }
 
+.jl__strip-wrap {
+  position: relative;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  padding: 0 40px;
+}
+
+.jl__strip-arrow {
+  position: absolute;
+  top: 4px;
+  bottom: 22px;
+  width: 28px;
+  background: var(--rust);
+  border: 1px solid var(--ink);
+  color: var(--paper);
+  font-family: $font-display;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition:
+    transform 0.12s ease,
+    background 0.15s ease,
+    opacity 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  &:hover {
+    background: var(--rust-bright);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  &--prev { left: 0; }
+  &--next { right: 0; }
+
+  &[disabled] {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: 1px 1px 0 var(--ink);
+
+    &:hover {
+      background: var(--rust);
+      transform: none;
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+  }
+
+  @media (max-width: 760px) {
+    width: 24px;
+    font-size: 20px;
+  }
+
+  @media (max-width: $bp-sm) {
+    width: 22px;
+    font-size: 18px;
+  }
+}
+
 .jl__strip {
   display: flex;
   gap: 14px;
   overflow-x: auto;
   padding: 4px 4px 18px;
   scroll-snap-type: x proximity;
-  margin-bottom: 48px;
-  border-bottom: 1px solid var(--rule);
 
   &::-webkit-scrollbar {
     height: 6px;
