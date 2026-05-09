@@ -1,73 +1,86 @@
-# React + TypeScript + Vite
+# Chronicles of the Broken Spear
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A campaign site for an ongoing Dungeons & Dragons game set in the mists of Forodain. Displays session summaries, world lore, characters, denizens, and deities — all pulled from a live API.
 
-Currently, two official plugins are available:
+Built with **React 19 + TypeScript + Vite**, styled with **SCSS** using a Field Journal theme. This is a ground-up rewrite of the [original repo](https://github.com/flash/forodain), replacing Tailwind CSS with hand-crafted SCSS and upgrading the toolchain to Deno-managed dependencies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React 19 / TypeScript 6
+- Vite 8
+- SCSS (Sass)
+- Deno (dependency management via `deno.lock`)
+- Nix flake for the dev shell
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Sections
 
-## Expanding the ESLint configuration
+| Section | Status |
+|---|---|
+| The Story | Live — chapters fetched from API |
+| The World | Placeholder |
+| Denizens | Placeholder |
+| Deities | Placeholder |
+| Characters | Placeholder |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## API
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Data is served by the Forodain API at `https://forodain-api.luthien-labs.net`. Requests are authenticated with a daily-rotating SHA-256 hash of the API key.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Copy `.env.example` to `.env` and fill in your key:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+VITE_API_BASE_URL=https://forodain-api.luthien-labs.net
+VITE_API_KEY=your_api_key_here
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The Vite dev server proxies `/api` to the base URL automatically, so no CORS issues locally.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Dependencies are managed by Deno. To install:
+
+```sh
+deno install
 ```
+
+Or with npm if you prefer:
+
+```sh
+npm install
+```
+
+## Dev
+
+```sh
+npm run dev
+```
+
+## Build
+
+```sh
+npm run build
+```
+
+Preview the production build locally:
+
+```sh
+npm run preview
+```
+
+## Nix
+
+A Nix flake is included. Enter the dev shell with:
+
+```sh
+nix develop
+```
+
+This provides Deno, Zsh, and the Deno VS Code extension.
+
+## To-do
+
+- [ ] The World section
+- [ ] Denizens section
+- [ ] Deities section
+- [ ] Characters section
+- [ ] Mobile layout polish
