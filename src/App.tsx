@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Hero } from './components/Hero/Hero';
 import { SectionNav, type SectionKey } from './components/SectionNav/SectionNav';
 import { Story } from './components/Story/Story';
+import { World } from './components/World/World';
 import { Placeholder } from './components/Placeholder/Placeholder';
 
 const App = () => {
@@ -12,7 +13,9 @@ const App = () => {
       <Hero />
       <div className="journal-theme">
         <SectionNav active={section} onSectionChange={setSection} />
-        {section === 'story' ? <Story /> : <Placeholder />}
+        {section === 'story' && <Story />}
+        {section === 'world' && <World />}
+        {section !== 'story' && section !== 'world' && <Placeholder />}
       </div>
     </>
   );
