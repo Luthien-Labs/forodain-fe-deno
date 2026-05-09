@@ -4,8 +4,9 @@ export const SECTIONS = [
   { key: 'story',      label: 'The Story' },
   { key: 'world',      label: 'The World' },
   { key: 'denizens',   label: 'Denizens' },
-  { key: 'deities',    label: 'Deities' },
+  { key: 'covenant',   label: 'The Covenant' },
   { key: 'characters', label: 'Characters' },
+  { key: 'met',        label: 'Those We Have Met' },
 ] as const;
 
 export type SectionKey = (typeof SECTIONS)[number]['key'];

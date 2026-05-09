@@ -1,6 +1,7 @@
 export interface ChapterSummary {
   _id: string;
   title: string;
+  label?: string;
   date?: string;
 }
 
