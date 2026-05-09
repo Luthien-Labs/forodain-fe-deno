@@ -60,16 +60,5 @@ body {
   --rule-soft: rgba(31, 26, 20, 0.16);
   background: var(--paper);
   background-image:
-    repeating-linear-gradient(
-      180deg,
-      transparent 0 31px,
-      rgba(31, 26, 20, 0.05) 31px 32px
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0 calc(22% - 1px),
-      rgba(107, 44, 32, 0.35) calc(22% - 1px) calc(22% + 1px),
-      transparent calc(22% + 1px) 100%
-    ),
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.14 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }

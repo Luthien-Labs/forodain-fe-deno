@@ -1,4 +1,4 @@
-import type { RefObject } from 'react';
+import type { RefObject } from "react";
 
 interface HeroContentProps {
   contentRef: RefObject<HTMLDivElement | null>;
@@ -10,22 +10,26 @@ export const HeroContent = ({ contentRef, metaRef }: HeroContentProps) => {
     <>
       <div className="hero__content" ref={contentRef}>
         <div className="hero__eyebrow">
-          <span>A Campaign in the Marches of Vael</span>
+          <span>A Campaign in the Mists of Forodain</span>
         </div>
         <h1 className="hero__title">
-          Chronicles of the<br />
+          Chronicles of the
+          <br />
           <em>Broken Spear</em>
         </h1>
         <p className="hero__sub">
-          Three winters since the last king bled. The roads are dark, the gods are quieter
-          still, and a spear once thought ceremonial has split in two.
+          A simple weapon sundered binds the fate of a nation.
         </p>
       </div>
       <div className="hero__campaign-meta" ref={metaRef}>
         <div className="hero__session">Session XXIII</div>
-        <div>Year 1147 of the <strong>Iron Concord</strong></div>
-        <div>Began <strong>Frostmonth, 1144</strong></div>
+        <div>
+          Year 1422 of the <strong>Common Reckoning</strong>
+        </div>
+        <div>
+          Began <strong>PASTURES, 1144</strong>
+        </div>
       </div>
     </>
   );
-}
+};
