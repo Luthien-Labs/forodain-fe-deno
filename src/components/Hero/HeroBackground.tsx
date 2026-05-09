@@ -12,25 +12,25 @@ export const HeroBackground = ({ vignetteRef, dustMidRef, dustNearRef }: HeroBac
       <div
         className="hero__art"
         aria-hidden="true"
-        style={{ backgroundImage: 'url(/img/forest.jpg)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}img/forest.jpg)` }}
       />
       <div
         className="hero__dust hero__dust--far"
         aria-hidden="true"
-        style={{ backgroundImage: 'url(/img/dust3.webp)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}img/dust3.webp)` }}
       />
       <div
         className="hero__dust hero__dust--mid"
         ref={dustMidRef}
         aria-hidden="true"
-        style={{ backgroundImage: 'url(/img/dust2.webp)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}img/dust2.webp)` }}
       />
       <div className="hero__vignette" ref={vignetteRef} aria-hidden="true" />
       <div
         className="hero__dust hero__dust--near"
         ref={dustNearRef}
         aria-hidden="true"
-        style={{ backgroundImage: 'url(/img/dust2.webp)' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}img/dust2.webp)` }}
       />
       <div className="hero__grain" aria-hidden="true" />
     </>
