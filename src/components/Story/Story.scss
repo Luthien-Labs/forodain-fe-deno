@@ -66,14 +66,79 @@
   margin: 24px 0 12px;
 }
 
+.jl__strip-wrap {
+  position: relative;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  padding: 0 40px;
+}
+
+.jl__strip-arrow {
+  position: absolute;
+  top: 4px;
+  bottom: 22px;
+  width: 28px;
+  background: var(--rust);
+  border: 1px solid var(--ink);
+  color: var(--paper);
+  font-family: $font-display;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition:
+    transform 0.12s ease,
+    background 0.15s ease,
+    opacity 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  &:hover {
+    background: var(--rust-bright);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  &--prev { left: 0; }
+  &--next { right: 0; }
+
+  &[disabled] {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: 1px 1px 0 var(--ink);
+
+    &:hover {
+      background: var(--rust);
+      transform: none;
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+  }
+
+  @media (max-width: 760px) {
+    width: 24px;
+    font-size: 20px;
+  }
+
+  @media (max-width: $bp-sm) {
+    width: 22px;
+    font-size: 18px;
+  }
+}
+
 .jl__strip {
   display: flex;
   gap: 14px;
   overflow-x: auto;
   padding: 4px 4px 18px;
   scroll-snap-type: x proximity;
-  margin-bottom: 48px;
-  border-bottom: 1px solid var(--rule);
 
   &::-webkit-scrollbar {
     height: 6px;
@@ -222,10 +287,35 @@
   }
 }
 
+// ── Loading state ─────────────────────────────────────────────────────────────
+
+.jl__loading {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+// ── Section subheading ────────────────────────────────────────────────────────
+
+.jl__section-h {
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 2.5vw, 30px);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  color: var(--ink);
+}
+
 // ── Section figure ────────────────────────────────────────────────────────────
 
 .jl__section-fig {
-  margin: 0 0 28px;
+  float: right;
+  clear: right;
+  width: min(480px, 65%);
+  margin: 4px 0 20px 28px;
   border: 1px solid var(--ink);
   background: var(--paper-2);
   padding: 6px;
@@ -233,17 +323,18 @@
   img {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    height: auto;
     border: 1px solid var(--ink);
     background: linear-gradient(180deg, #5a4a32, #2a2218);
   }
 
   &.is-placeholder {
     position: relative;
+    min-height: 160px;
 
     img {
       visibility: hidden;
+      min-height: 160px;
     }
 
     &::after {
@@ -261,6 +352,18 @@
       background: rgba(0, 0, 0, 0.3);
     }
   }
+
+  @media (max-width: $bp-sm) {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px;
+  }
+}
+
+.jl__section::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 // ── Chapter footer / nav ──────────────────────────────────────────────────────

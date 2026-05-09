@@ -1,11 +1,15 @@
+export interface ChapterSummary {
+  _id: string;
+  title: string;
+  date?: string;
+}
+
 export interface ChapterSection {
+  heading?: string;
   image?: string;
   paragraphs: string[];
 }
 
-export interface Chapter {
-  _id: string;
-  title: string;
-  date?: string;
+export interface Chapter extends ChapterSummary {
   sections: ChapterSection[];
 }
