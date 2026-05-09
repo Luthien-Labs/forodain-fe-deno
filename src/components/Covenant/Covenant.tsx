@@ -4,7 +4,7 @@ import { WorldReader } from '../World/WorldReader';
 import { covenantEntries } from '../../data/covenantEntries';
 import '../Story/Story.scss';
 
-const summaries = covenantEntries.map(({ id, title }) => ({ _id: id, title }));
+const summaries = covenantEntries.map(({ id, title, label }) => ({ _id: id, title, label }));
 
 export const Covenant = () => {
   const [entryIdx, setEntryIdx] = useState(0);

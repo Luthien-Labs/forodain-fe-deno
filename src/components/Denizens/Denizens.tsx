@@ -4,7 +4,7 @@ import { WorldReader } from '../World/WorldReader';
 import { denizenEntries } from '../../data/denizenEntries';
 import '../Story/Story.scss';
 
-const summaries = denizenEntries.map(({ id, title }) => ({ _id: id, title }));
+const summaries = denizenEntries.map(({ id, title, label }) => ({ _id: id, title, label }));
 
 export const Denizens = () => {
   const [entryIdx, setEntryIdx] = useState(0);

@@ -6,5 +6,6 @@ export interface WorldSection {
 export interface WorldEntry {
   id: string;
   title: string;
+  label?: string;
   sections: WorldSection[];
 }

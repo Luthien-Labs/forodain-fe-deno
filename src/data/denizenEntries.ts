@@ -5,6 +5,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "dwarves",
     title: "Dwarves",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -18,6 +19,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "elves",
     title: "Elves",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -31,6 +33,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "halflings",
     title: "Halflings",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -43,6 +46,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "humans",
     title: "Humans",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -62,6 +66,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "dragonborn",
     title: "Dragonborn",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -73,6 +78,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "gnomes",
     title: "Gnomes",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -84,6 +90,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "half-elves",
     title: "Half-Elves",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -95,6 +102,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "half-orcs",
     title: "Half-Orcs",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -106,6 +114,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "tieflings",
     title: "Tieflings",
+    label: "Race",
     sections: [
       {
         paragraphs: [
@@ -120,6 +129,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "barbarian",
     title: "Barbarian",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -135,6 +145,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "bard",
     title: "Bard",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -150,6 +161,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "cleric",
     title: "Cleric",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -164,6 +176,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "druid",
     title: "Druid",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -178,6 +191,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "fighter",
     title: "Fighter",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -193,6 +207,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "monk",
     title: "Monk",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -208,6 +223,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "paladin",
     title: "Paladin",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -222,6 +238,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "ranger",
     title: "Ranger",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -237,6 +254,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "rogue",
     title: "Rogue",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -252,6 +270,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "sorcerer",
     title: "Sorcerer",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -268,6 +287,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "warlock",
     title: "Warlock",
+    label: "Class",
     sections: [
       {
         paragraphs: [
@@ -286,6 +306,7 @@ export const denizenEntries: WorldEntry[] = [
   {
     id: "wizard",
     title: "Wizard",
+    label: "Class",
     sections: [
       {
         paragraphs: [

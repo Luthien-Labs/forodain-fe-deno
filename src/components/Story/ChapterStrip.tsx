@@ -78,15 +78,17 @@ export const ChapterStrip = ({ chapters, activeIndex, onSelect }: ChapterStripPr
     <>
       <p className="jl__strip-label">Chapters</p>
       <div className="jl__strip-wrap">
-        <button
-          className="jl__strip-arrow jl__strip-arrow--prev"
-          type="button"
-          aria-label="Scroll chapters backward"
-          disabled={!canLeft}
-          onClick={() => scroll('left')}
-        >
-          ‹
-        </button>
+        {(canLeft || canRight) && (
+          <button
+            className="jl__strip-arrow jl__strip-arrow--prev"
+            type="button"
+            aria-label="Scroll chapters backward"
+            disabled={!canLeft}
+            onClick={() => scroll('left')}
+          >
+            ‹
+          </button>
+        )}
         <div className="jl__strip" role="listbox" aria-label="Chapters" ref={stripRef}>
           {chapters.map((chapter, i) => (
             <button
@@ -98,21 +100,23 @@ export const ChapterStrip = ({ chapters, activeIndex, onSelect }: ChapterStripPr
               aria-current={i === activeIndex ? 'true' : undefined}
               onClick={() => onSelect(i)}
             >
-              <span className="jl__card-num">Ch. {toRoman(i + 1)}</span>
+              <span className="jl__card-num">{chapter.label ?? `Ch. ${toRoman(i + 1)}`}</span>
               <span className="jl__card-title">{chapter.title}</span>
               {chapter.date && <span className="jl__card-date">{chapter.date}</span>}
             </button>
           ))}
         </div>
-        <button
-          className="jl__strip-arrow jl__strip-arrow--next"
-          type="button"
-          aria-label="Scroll chapters forward"
-          disabled={!canRight}
-          onClick={() => scroll('right')}
-        >
-          ›
-        </button>
+        {(canLeft || canRight) && (
+          <button
+            className="jl__strip-arrow jl__strip-arrow--next"
+            type="button"
+            aria-label="Scroll chapters forward"
+            disabled={!canRight}
+            onClick={() => scroll('right')}
+          >
+            ›
+          </button>
+        )}
       </div>
     </>
   );

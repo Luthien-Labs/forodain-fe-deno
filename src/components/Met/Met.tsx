@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { ChapterStrip } from '../Story/ChapterStrip';
-import { WorldReader } from '../World/WorldReader';
+import { MetReader } from './MetReader';
 import { metEntries } from '../../data/metEntries';
 import '../Story/Story.scss';
+import './Met.scss';
 
-const summaries = metEntries.map(({ id, title }) => ({ _id: id, title }));
+const summaries = metEntries.map(({ id, title, label }) => ({ _id: id, title, label }));
 
 export const Met = () => {
   const [entryIdx, setEntryIdx] = useState(0);
@@ -22,7 +23,7 @@ export const Met = () => {
         activeIndex={entryIdx}
         onSelect={setEntryIdx}
       />
-      <WorldReader
+      <MetReader
         entry={metEntries[entryIdx]}
         entryIndex={entryIdx}
         entryCount={metEntries.length}

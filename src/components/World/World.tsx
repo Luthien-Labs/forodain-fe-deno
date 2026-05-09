@@ -4,7 +4,7 @@ import { WorldReader } from './WorldReader';
 import { worldEntries } from '../../data/worldEntries';
 import '../Story/Story.scss';
 
-const summaries = worldEntries.map(({ id, title }) => ({ _id: id, title }));
+const summaries = worldEntries.map(({ id, title, label }) => ({ _id: id, title, label }));
 
 export const World = () => {
   const [entryIdx, setEntryIdx] = useState(0);
