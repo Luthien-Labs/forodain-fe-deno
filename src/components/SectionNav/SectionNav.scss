@@ -32,9 +32,9 @@
   border-radius: 0;
   padding: 22px 28px;
   font-family: $font-mono;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  font-weight: 500;
+  font-size: 12.5px;
+  letter-spacing: 0.28em;
+  font-weight: 600;
   text-transform: uppercase;
   color: var(--ink-soft);
   cursor: pointer;
@@ -71,7 +71,7 @@
   }
 }
 
-// Mobile dropdown (hidden by default, shown at ≤760px)
+// Dropdown (hidden by default, shown at ≤1150px)
 .section-nav__select-wrap {
   display: none;
   position: relative;
@@ -122,40 +122,7 @@
 }
 
 // Responsive breakpoints
-@media (max-width: $bp-lg) {
-  .section-nav__bar {
-    justify-content: flex-start;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 0 4vw;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .section-nav__item {
-    padding: 16px 18px;
-    font-size: 13px;
-    letter-spacing: 0.16em;
-    white-space: nowrap;
-    flex: 0 0 auto;
-    border-left: none;
-
-    &:last-child {
-      border-right: none;
-    }
-
-    &[aria-current="true"]::after {
-      width: 32px;
-      height: 2px;
-    }
-  }
-}
-
-@media (max-width: $bp-md) {
+@media (max-width: $bp-xl) {
   .section-nav__bar {
     display: none;
   }
