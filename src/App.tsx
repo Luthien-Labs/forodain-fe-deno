@@ -3,6 +3,7 @@ import { Hero } from './components/Hero/Hero';
 import { SectionNav, type SectionKey } from './components/SectionNav/SectionNav';
 import { Story } from './components/Story/Story';
 import { World } from './components/World/World';
+import { Denizens } from './components/Denizens/Denizens';
 import { Placeholder } from './components/Placeholder/Placeholder';
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
         <SectionNav active={section} onSectionChange={setSection} />
         {section === 'story' && <Story />}
         {section === 'world' && <World />}
-        {section !== 'story' && section !== 'world' && <Placeholder />}
+        {section === 'denizens' && <Denizens />}
+        {section !== 'story' && section !== 'world' && section !== 'denizens' && <Placeholder />}
       </div>
     </>
   );

@@ -7,7 +7,6 @@ export const worldEntries: WorldEntry[] = [
     sections: [
       {
         paragraphs: [
-          "So, that's your character set up. But how do they interact with the world around them? How do they feel about the structures of power? How do they deal with how the world sees them? To answer those, lets first of all briefly look at how Forodain society works.",
           "Forodain is a continent of wilderness and peril, seen and hidden. The common peasantry make up the overwhelming majority of the population and few ever consider leaving their homes to go on adventure. They mostly dwell in a society in which they can live a simple rural life.",
           "A king or queen rules each state on Forodain, and they own the land and everything within. They have complete authority over the subjects of that realm. The ruler will often have a private estate, administered by their own household, and within which no-one is permitted to farm, hunt, or trespass without the ruler's permission. The king usually dwells in the capital, from where royal authority extends.",
         ],
