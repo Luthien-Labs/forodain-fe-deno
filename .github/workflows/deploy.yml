@@ -44,17 +44,18 @@ jobs:
         # download the platform binary — allow it explicitly.
         run: deno install --allow-scripts=npm:esbuild
 
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Type check
         run: node node_modules/.bin/tsc -b
 
       - name: Build
-        run: node node_modules/.bin/vite build
+        run: node node_modules/.bin/vite build --base "${{ steps.pages.outputs.base_path }}"
         env:
           VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
