@@ -3,9 +3,10 @@ import type { RefObject } from "react";
 interface HeroContentProps {
   contentRef: RefObject<HTMLDivElement | null>;
   metaRef: RefObject<HTMLDivElement | null>;
+  sessionLabel: string;
 }
 
-export const HeroContent = ({ contentRef, metaRef }: HeroContentProps) => {
+export const HeroContent = ({ contentRef, metaRef, sessionLabel }: HeroContentProps) => {
   return (
     <>
       <div className="hero__content" ref={contentRef}>
@@ -22,7 +23,7 @@ export const HeroContent = ({ contentRef, metaRef }: HeroContentProps) => {
         </p>
       </div>
       <div className="hero__campaign-meta" ref={metaRef}>
-        <div className="hero__session">Session XXIII</div>
+        <div className="hero__session">Session {sessionLabel}</div>
         <div>
           Year 1422 of the <strong>Common Reckoning</strong>
         </div>

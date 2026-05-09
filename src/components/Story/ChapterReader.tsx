@@ -25,6 +25,7 @@ const SectionFig = ({ src }: { src: string }) => {
 
 const ChapterSectionBlock = ({ section, isFirst }: { section: ChapterSection; isFirst: boolean }) => (
   <section className={`jl__section${isFirst ? ' jl__section--first' : ''}`}>
+    {section.heading && <h4 className="jl__section-h">{section.heading}</h4>}
     {section.image && <SectionFig src={section.image} />}
     {section.paragraphs.map((para, i) => (
       <p key={i}>{para}</p>
@@ -33,15 +34,15 @@ const ChapterSectionBlock = ({ section, isFirst }: { section: ChapterSection; is
 );
 
 interface ChapterReaderProps {
-  chapters: Chapter[];
-  activeIndex: number;
+  chapter: Chapter;
+  chapterIndex: number;
+  chapterCount: number;
   onPrev: () => void;
   onNext: () => void;
 }
 
-export const ChapterReader = ({ chapters, activeIndex, onPrev, onNext }: ChapterReaderProps) => {
-  const chapter = chapters[activeIndex];
-  const romanNum = ROMAN[activeIndex] ?? String(activeIndex + 1);
+export const ChapterReader = ({ chapter, chapterIndex, chapterCount, onPrev, onNext }: ChapterReaderProps) => {
+  const romanNum = ROMAN[chapterIndex] ?? String(chapterIndex + 1);
 
   return (
     <article className="jl__chapter">
@@ -55,14 +56,14 @@ export const ChapterReader = ({ chapters, activeIndex, onPrev, onNext }: Chapter
         ))}
       </div>
       <div className="jl__chapter-foot">
-        <button className="jl__nav-btn" onClick={onPrev} disabled={activeIndex === 0}>
+        <button className="jl__nav-btn" onClick={onPrev} disabled={chapterIndex === 0}>
           ← Previous
         </button>
-        <span>Chapter {romanNum} of {chapters.length}</span>
+        <span>Chapter {romanNum} of {chapterCount}</span>
         <button
           className="jl__nav-btn"
           onClick={onNext}
-          disabled={activeIndex === chapters.length - 1}
+          disabled={chapterIndex === chapterCount - 1}
         >
           Next →
         </button>

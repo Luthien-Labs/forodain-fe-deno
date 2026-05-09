@@ -1,9 +1,9 @@
-import type { Chapter } from '../../types/story';
+import type { ChapterSummary } from '../../types/story';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 interface ChapterStripProps {
-  chapters: Chapter[];
+  chapters: ChapterSummary[];
   activeIndex: number;
   onSelect: (index: number) => void;
 }
