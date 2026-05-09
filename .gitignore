@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Deno
+.deno/
+
+# Nix
+result
+result-*
+
+# Environment
+*.local
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Editor
+.idea/
+*.sw?

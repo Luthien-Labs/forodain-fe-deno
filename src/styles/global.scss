@@ -1,0 +1,75 @@
+@use 'typography';
+
+:root {
+  --paper: #e8dcc4;
+  --paper-2: #d9caa9;
+  --paper-3: #c9b78f;
+  --ink: #1a1714;
+  --ink-2: #2c2620;
+  --ink-soft: #4a4038;
+  --rust: #6b2c20;
+  --rust-bright: #8a3a28;
+  --moss: #4a5a3a;
+  --gold: #8a6a2a;
+  --rule: rgba(26, 23, 20, 0.35);
+  --rule-soft: rgba(26, 23, 20, 0.18);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(120, 80, 40, 0.10), transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(60, 40, 20, 0.12), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-attachment: fixed, fixed, fixed;
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+/* Field Journal theme — applied to below-fold wrapper */
+.journal-theme {
+  --paper: #efe6d2;
+  --paper-2: #e4d6b6;
+  --paper-3: #d6c294;
+  --ink: #1f1a14;
+  --ink-2: #2e271e;
+  --ink-soft: #5a4d3c;
+  --rust: #6b2c20;
+  --moss: #4a5a3a;
+  --rule: rgba(31, 26, 20, 0.32);
+  --rule-soft: rgba(31, 26, 20, 0.16);
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 31px,
+      rgba(31, 26, 20, 0.05) 31px 32px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 calc(22% - 1px),
+      rgba(107, 44, 32, 0.35) calc(22% - 1px) calc(22% + 1px),
+      transparent calc(22% + 1px) 100%
+    ),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.14 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
