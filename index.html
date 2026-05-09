@@ -2,6 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'none';
+      script-src 'self';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com blob:;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data:;
+      connect-src 'self' https://forodain-api.luthien-labs.net https://fonts.googleapis.com https://fonts.gstatic.com;
+      base-uri 'self';
+      form-action 'none';
+      object-src 'none';
+    " />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
     <link rel="icon" type="image/png" href="/img/spear-emblem-t.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chronicles of the Broken Spear</title>
