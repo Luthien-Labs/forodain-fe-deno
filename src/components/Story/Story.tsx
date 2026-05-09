@@ -21,7 +21,6 @@ export const Story = () => {
 
   useEffect(() => {
     if (!summaries || summaries.length === 0) return;
-    setActiveChapter(null);
     fetchChapter(summaries[chapterIdx]._id)
       .then(setActiveChapter)
       .catch((err: Error) => setError(err.message));

@@ -56,11 +56,18 @@ export const ChapterStrip = ({ chapters, activeIndex, onSelect }: ChapterStripPr
   }, [chapters]);
 
   useEffect(() => {
-    cardRefs.current[activeIndex]?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
-    });
+    const card = cardRefs.current[activeIndex];
+    const strip = stripRef.current;
+    if (!card || !strip) return;
+    const cardLeft = card.offsetLeft;
+    const cardRight = cardLeft + card.offsetWidth;
+    const stripLeft = strip.scrollLeft;
+    const stripRight = stripLeft + strip.clientWidth;
+    if (cardLeft < stripLeft) {
+      strip.scrollTo({ left: cardLeft, behavior: 'smooth' });
+    } else if (cardRight > stripRight) {
+      strip.scrollTo({ left: cardRight - strip.clientWidth, behavior: 'smooth' });
+    }
   }, [activeIndex]);
 
   const scroll = (dir: 'left' | 'right') => {
