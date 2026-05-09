@@ -7,6 +7,7 @@ import { Denizens } from './components/Denizens/Denizens';
 import { Covenant } from './components/Covenant/Covenant';
 import { Characters } from './components/Characters/Characters';
 import { Met } from './components/Met/Met';
+import { Stoneborn } from './components/Stoneborn/Stoneborn';
 import { Placeholder } from './components/Placeholder/Placeholder';
 
 const App = () => {
@@ -23,7 +24,8 @@ const App = () => {
         {section === 'covenant' && <Covenant />}
         {section === 'characters' && <Characters />}
         {section === 'met' && <Met />}
-        {section !== 'story' && section !== 'world' && section !== 'denizens' && section !== 'covenant' && section !== 'characters' && section !== 'met' && <Placeholder />}
+        {section === 'stoneborn' && <Stoneborn />}
+        {section !== 'story' && section !== 'world' && section !== 'denizens' && section !== 'covenant' && section !== 'characters' && section !== 'met' && section !== 'stoneborn' && <Placeholder />}
       </div>
     </>
   );
