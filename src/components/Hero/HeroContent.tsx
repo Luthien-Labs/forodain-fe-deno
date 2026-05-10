@@ -6,7 +6,11 @@ interface HeroContentProps {
   sessionLabel: string;
 }
 
-export const HeroContent = ({ contentRef, metaRef, sessionLabel }: HeroContentProps) => {
+export const HeroContent = ({
+  contentRef,
+  metaRef,
+  sessionLabel,
+}: HeroContentProps) => {
   return (
     <>
       <div className="hero__content" ref={contentRef}>
@@ -28,7 +32,7 @@ export const HeroContent = ({ contentRef, metaRef, sessionLabel }: HeroContentPr
           Year 1422 of the <strong>Common Reckoning</strong>
         </div>
         <div>
-          Began <strong>PASTURES, 1144</strong>
+          Began <strong>PASTURES, 1422</strong>
         </div>
       </div>
     </>
