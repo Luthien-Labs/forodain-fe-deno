@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import type { Chapter } from '../../types/story';
+import type { ChapterSummary } from '../../types/story';
 
 const SCROLL_AMOUNT = 468; // ~2 card widths
 
@@ -14,7 +14,7 @@ const toRoman = (n: number): string => {
 };
 
 interface ChapterStripProps {
-  chapters: Chapter[];
+  chapters: ChapterSummary[];
   activeIndex: number;
   onSelect: (index: number) => void;
 }
@@ -100,7 +100,7 @@ export const ChapterStrip = ({ chapters, activeIndex, onSelect }: ChapterStripPr
               aria-current={i === activeIndex ? 'true' : undefined}
               onClick={() => onSelect(i)}
             >
-              <span className="jl__card-num">Ch. {toRoman(i + 1)}</span>
+              <span className="jl__card-num">{chapter.label ?? `Ch. ${toRoman(i + 1)}`}</span>
               <span className="jl__card-title">{chapter.title}</span>
             </button>
           ))}

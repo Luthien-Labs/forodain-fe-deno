@@ -1,3 +1,9 @@
+export interface ChapterSummary {
+  _id: string;
+  title: string;
+  label?: string;
+}
+
 export type Block =
   | { type: 'paragraph'; text: string }
   | { type: 'heading'; text: string }
