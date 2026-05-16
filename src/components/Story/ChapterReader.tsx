@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Chapter, ChapterSection } from '../../types/story';
+import type { Chapter, Block } from '../../types/story';
 
 const toRoman = (n: number): string => {
   const vals = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
@@ -33,18 +33,30 @@ const SectionFig = ({ src, align }: { src: string; align: ImageAlign }) => {
   );
 };
 
-const ChapterSectionBlock = ({ section, isFirst, isLast, imageAlign }: { section: ChapterSection; isFirst: boolean; isLast: boolean; imageAlign?: ImageAlign }) => {
-  const centerBottom = isLast && section.paragraphs.length <= 1;
-  return (
-    <section className={`jl__section${isFirst ? ' jl__section--first' : ''}`}>
-      {section.heading && <h4 className="jl__section-h">{section.heading}</h4>}
-      {section.image && !centerBottom && <SectionFig src={section.image} align={imageAlign ?? 'right'} />}
-      {section.paragraphs.map((para, i) => (
-        <p key={i}>{para}</p>
-      ))}
-      {section.image && centerBottom && <SectionFig src={section.image} align="center" />}
-    </section>
-  );
+const renderBlock = (block: Block, i: number) => {
+  switch (block.type) {
+    case 'paragraph':
+      return <p key={i}>{block.text}</p>;
+    case 'heading':
+      return <h4 key={i} className="jl__section-h">{block.text}</h4>;
+    case 'image':
+      return (
+        <SectionFig
+          key={i}
+          src={block.src}
+          align={block.placement === 'standalone' ? 'center' : block.placement}
+        />
+      );
+    case 'quote':
+      return (
+        <blockquote key={i}>
+          <p>{block.text}</p>
+          {block.cite && <cite>{block.cite}</cite>}
+        </blockquote>
+      );
+    case 'divider':
+      return <hr key={i} className="jl__divider" />;
+  }
 };
 
 interface ChapterReaderProps {
@@ -58,24 +70,15 @@ interface ChapterReaderProps {
 export const ChapterReader = ({ chapter, chapterIndex, chapterCount, onPrev, onNext }: ChapterReaderProps) => {
   const romanNum = toRoman(chapterIndex + 1);
 
-  let imgIdx = 0;
-  const sectionAlignments = chapter.sections.map((s): ImageAlign | undefined => {
-    if (!s.image) return undefined;
-    const align: ImageAlign = imgIdx % 2 === 0 ? 'right' : 'left';
-    imgIdx++;
-    return align;
-  });
-
   return (
     <article className="jl__chapter">
       <div className="jl__chapter-meta">
         <span><b>Chapter {romanNum}</b></span>
       </div>
       <h3 className="jl__chapter-h">{chapter.title}</h3>
+      {chapter.subtitle && <p className="jl__chapter-subtitle">{chapter.subtitle}</p>}
       <div className="jl__body">
-        {chapter.sections.map((section, i) => (
-          <ChapterSectionBlock key={i} section={section} isFirst={i === 0} isLast={i === chapter.sections.length - 1} imageAlign={sectionAlignments[i]} />
-        ))}
+        {chapter.blocks.map((block, i) => renderBlock(block, i))}
       </div>
       <div className="jl__chapter-foot">
         <button className="jl__nav-btn" onClick={onPrev} disabled={chapterIndex === 0}>
