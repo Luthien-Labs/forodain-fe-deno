@@ -377,7 +377,8 @@
   }
 }
 
-.jl__section::after {
+.jl__section::after,
+.jl__body::after {
   content: "";
   display: table;
   clear: both;
