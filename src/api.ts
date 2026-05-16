@@ -1,4 +1,4 @@
-import type { Chapter, ChapterSummary } from './types/story';
+import type { Chapter } from './types/story';
 
 const hashKey = async (): Promise<string> => {
   const date = new Date().toISOString().split('T')[0];
@@ -23,8 +23,8 @@ const get = async <T>(path: string): Promise<T> => {
   return res.json() as Promise<T>;
 };
 
-export const fetchChapters = (): Promise<ChapterSummary[]> =>
-  get<{ stories: ChapterSummary[] }>('/stories').then((d) => d.stories);
+export const fetchChapters = (): Promise<Chapter[]> =>
+  get<{ stories: Chapter[] }>('/stories').then((d) => d.stories);
 
 export const fetchChapter = (id: string): Promise<Chapter> =>
   get<{ story: Chapter }>(`/story/${id}`).then((d) => d.story);

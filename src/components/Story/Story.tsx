@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { ChapterStrip } from "./ChapterStrip";
 import { ChapterReader } from "./ChapterReader";
 import { fetchChapters, fetchChapter } from "../../api";
-import type { ChapterSummary, Chapter } from "../../types/story";
+import type { Chapter } from "../../types/story";
 import "./Story.scss";
 
 export const Story = () => {
-  const [summaries, setSummaries] = useState<ChapterSummary[] | null>(null);
+  const [summaries, setSummaries] = useState<Chapter[] | null>(null);
   const [activeChapter, setActiveChapter] = useState<Chapter | null>(null);
   const [chapterIdx, setChapterIdx] = useState(0);
   const [error, setError] = useState<string | null>(null);
